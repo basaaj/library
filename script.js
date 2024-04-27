@@ -16,9 +16,11 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked);
-    myLibrary.push(newBook);
-    displayBook(newBook);
+    if (bookTitle.value && bookAuthor.value && bookPages.value) {
+        let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked);
+        myLibrary.push(newBook);
+        displayBook(newBook);
+    }
 }
 
 function displayBook(book) {
@@ -47,4 +49,8 @@ for (i = 0; i < myLibrary.length; i++) {
 addButton.addEventListener("click", (e) => {
     e.preventDefault();
     addBookToLibrary();
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPages.value = "";
+    bookRead.checked = false;
 });
