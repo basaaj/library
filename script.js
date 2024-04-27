@@ -6,6 +6,7 @@ const bookPages = document.querySelector('#pages');
 const bookRead = document.querySelector('#read');
 const books = document.querySelector('.books');
 const addButton = document.querySelector('#add');
+const removeButtons = document.querySelectorAll('.remove');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -24,6 +25,15 @@ function displayBook(book) {
     let newDiv = document.createElement('div');
     newDiv.className = 'book';
     newDiv.textContent = book.title + book.author + book.pages + book.read;
+
+    let removeButton = document.createElement('button');
+    removeButton.className = 'remove';
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener("click", () => {
+        removeButton.parentElement.remove();
+    });
+    newDiv.appendChild(removeButton);
+
     books.appendChild(newDiv);
 }
 
