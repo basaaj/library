@@ -7,6 +7,8 @@ const bookRead = document.querySelector('#read');
 const books = document.querySelector('.books');
 const addButton = document.querySelector('#add');
 const removeButtons = document.querySelectorAll('.remove');
+const newButton = document.querySelector('#new-book');
+const bookForm = document.querySelector('dialog');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -17,6 +19,7 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {
     if (bookTitle.value && bookAuthor.value && bookPages.value) {
+        bookForm.close();
         let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked);
         myLibrary.push(newBook);
         displayBook(newBook);
@@ -53,4 +56,8 @@ addButton.addEventListener("click", (e) => {
     bookAuthor.value = "";
     bookPages.value = "";
     bookRead.checked = false;
+});
+
+newButton.addEventListener("click", () => {
+    bookForm.showModal();
 });
