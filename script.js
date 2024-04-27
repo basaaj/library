@@ -9,6 +9,7 @@ const addButton = document.querySelector('#add');
 const removeButtons = document.querySelectorAll('.remove');
 const newButton = document.querySelector('#new-book');
 const bookForm = document.querySelector('dialog');
+const closeButton = document.querySelector('#close');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -60,4 +61,8 @@ addButton.addEventListener("click", (e) => {
 
 newButton.addEventListener("click", () => {
     bookForm.showModal();
+});
+
+closeButton.addEventListener("click", (e) => {
+    bookForm.close();
 });
