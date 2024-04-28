@@ -1,8 +1,8 @@
 :root {
     --dark-brown: #894e1d;
     --light-brown: #9b775d;
-    --gray: #e1d2b8;
-    --black: #312b21;
+    --brown-gray: #e1d2b8;
+    --gray: rgb(237, 232, 230);
 }
 
 * {
@@ -92,12 +92,13 @@ input:checked + .slider:before {
     border-radius: 10px;
     margin: 25px;
     padding: 25px;
-    justify-content: space-around;
+    justify-content: space-between;
+    box-shadow: 5px 5px var(--light-brown);
 }
 
 .book p {
     font-size: large;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .book p:first-child {
@@ -114,7 +115,7 @@ button {
     border: 2px solid var(--dark-brown);
     border-radius: 20px;
     height: 40px;
-    background-color: var(--gray);
+    background-color: var(--brown-gray);
     color: var(--dark-brown);
 }
 
@@ -137,6 +138,8 @@ dialog {
     height: 350px;
     width: 400px;
     font-size: large;
+    background-color: var(--gray);
+    box-shadow: 5px 5px var(--light-brown);
 }
 
 dialog .header {
@@ -201,4 +204,10 @@ input:focus {
 #add {
     width: 100px;
     justify-self: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
