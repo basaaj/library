@@ -30,7 +30,7 @@ function addBookToLibrary() {
 function displayBook(book) {
     let newDiv = document.createElement('div');
     newDiv.className = 'book';
-    newDiv.textContent = book.title + book.author + book.pages + book.read;
+    newDiv.textContent = book.title + book.author + book.pages;
 
     let removeButton = document.createElement('button');
     removeButton.className = 'remove';
@@ -39,6 +39,14 @@ function displayBook(book) {
         removeButton.parentElement.remove();
     });
     newDiv.appendChild(removeButton);
+
+    let readSlider = document.createElement('label');
+    readSlider.className = 'switch';
+    readSlider.innerHTML = '<input type="checkbox"><span class="slider round"></span>';
+    if (book.read) {
+        readSlider.firstChild.checked = true;
+    }
+    newDiv.appendChild(readSlider);
 
     books.appendChild(newDiv);
 }
