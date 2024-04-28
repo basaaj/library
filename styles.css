@@ -12,6 +12,7 @@
 body {
     height: 100vh;
     background-color: var(--gray);
+    font-family: "Roboto", serif;
 }
 
 .books {
@@ -144,15 +145,20 @@ dialog {
 
 dialog .header {
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .form-field {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0;
 }
 
 .form-field input {
@@ -163,10 +169,15 @@ dialog .header {
     border: 1px solid var(--dark-brown);
     padding: 2px 10px;
     font-size: large;
+    font-family: "Roboto", serif;
 }
 
 input:focus {
-    border: 1px solid var(--dark-brown);
+    outline: none;
+}
+
+#add {
+    align-self: center;
 }
 
 #read:before {
@@ -198,7 +209,7 @@ input:focus {
 #close {
     height: 40px;
     width: 40px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #add {

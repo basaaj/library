@@ -79,8 +79,8 @@ closeButton.addEventListener("click", (e) => {
     bookForm.close();
 });
 
-myLibrary.push(new Book("Naruto ", "Masashi Kishimoto ", 250, true));
-myLibrary.push(new Book("Bleach ", "Tite Kubo ", 250, true));
+myLibrary.push(new Book("Percy Jackson and the Olympians: The Lightning Thief", "Rick Riordan", 416, true));
+myLibrary.push(new Book("The Perks of Being a Wallflower", "Stephen Chbosky", 240, true));
 
 for (i = 0; i < myLibrary.length; i++) {
     myLibrary[i].display();
