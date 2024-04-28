@@ -16,6 +16,41 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+
+    this.display = function() {
+        let newDiv = document.createElement('div');
+        newDiv.className = 'book';
+        newDiv.innerHTML = `<div>
+                                <p class="header">${title}</p>
+                                <p>${author}</p>
+                                <p>${pages} Pages</p>
+                            </div>`;
+
+        let buttons = document.createElement('div');
+        buttons.className = 'buttons';
+
+        let readSlider = document.createElement('label');
+        readSlider.className = 'switch';
+        readSlider.innerHTML = `<input type="checkbox">
+                                <span class="slider round"></span>`;
+        if (read) {
+            readSlider.firstChild.checked = true;
+        }
+        buttons.appendChild(readSlider);
+
+        let removeButton = document.createElement('button');
+        removeButton.className = 'remove';
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener("click", () => {
+            removeButton.parentElement.parentElement.remove();
+            let index = myLibrary.indexOf(this);
+            myLibrary.splice(index, 1);
+        });
+        buttons.appendChild(removeButton); 
+
+        newDiv.appendChild(buttons);
+        books.appendChild(newDiv);
+    }
 }
 
 function addBookToLibrary() {
@@ -23,43 +58,8 @@ function addBookToLibrary() {
         bookForm.close();
         let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked);
         myLibrary.push(newBook);
-        displayBook(newBook);
+        newBook.display();
     }
-}
-
-function displayBook(book) {
-    let newDiv = document.createElement('div');
-    newDiv.className = 'book';
-    newDiv.innerHTML = `<div><p class="header">${book.title}</p><p>${book.author}</p><p>${book.pages} Pages</p></div>`;
-
-    let buttons = document.createElement('div');
-    buttons.className = 'buttons';
-
-    let readSlider = document.createElement('label');
-    readSlider.className = 'switch';
-    readSlider.innerHTML = '<input type="checkbox"><span class="slider round"></span>';
-    if (book.read) {
-        readSlider.firstChild.checked = true;
-    }
-    buttons.appendChild(readSlider);
-
-    let removeButton = document.createElement('button');
-    removeButton.className = 'remove';
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener("click", () => {
-        removeButton.parentElement.parentElement.remove();
-    });
-    buttons.appendChild(removeButton); 
-
-    newDiv.appendChild(buttons);
-    books.appendChild(newDiv);
-}
-
-myLibrary.push(new Book("Naruto ", "Masashi Kishimoto ", 250, true));
-myLibrary.push(new Book("Bleach ", "Tite Kubo ", 250, true));
-
-for (i = 0; i < myLibrary.length; i++) {
-    displayBook(myLibrary[i]);
 }
 
 addButton.addEventListener("click", (e) => {
@@ -78,3 +78,10 @@ newButton.addEventListener("click", () => {
 closeButton.addEventListener("click", (e) => {
     bookForm.close();
 });
+
+myLibrary.push(new Book("Naruto ", "Masashi Kishimoto ", 250, true));
+myLibrary.push(new Book("Bleach ", "Tite Kubo ", 250, true));
+
+for (i = 0; i < myLibrary.length; i++) {
+    myLibrary[i].display();
+}
