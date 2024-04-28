@@ -63,7 +63,6 @@ function addBookToLibrary() {
 }
 
 addButton.addEventListener("click", (e) => {
-    e.preventDefault();
     addBookToLibrary();
     bookTitle.value = "";
     bookAuthor.value = "";
