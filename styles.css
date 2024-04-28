@@ -1,13 +1,22 @@
+:root {
+    --dark-brown: #894e1d;
+    --light-brown: #9b775d;
+    --gray: #e1d2b8;
+    --black: #312b21;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     height: 100vh;
+    background-color: var(--gray);
 }
 
 .books {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* The switch - the box around the slider */
@@ -51,11 +60,11 @@ body {
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: var(--dark-brown);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px var(--dark-brown);
 }
 
 input:checked + .slider:before {
@@ -71,4 +80,125 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 300px;
+    background-color: var(--gray);
+    border: solid var(--light-brown);
+    border-radius: 10px;
+    margin: 25px;
+    padding: 25px;
+    justify-content: space-around;
+}
+
+.book p {
+    font-size: large;
+    margin: 5px 0;
+}
+
+.book p:first-child {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+button {
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid var(--dark-brown);
+    border-radius: 20px;
+    height: 40px;
+    background-color: var(--gray);
+    color: var(--dark-brown);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-brown);
+}
+
+dialog {
+    border-radius: 25px;
+    border: solid var(--dark-brown);
+    height: 350px;
+    width: 400px;
+    font-size: large;
+}
+
+dialog .header {
+    margin: 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-field input {
+    height: 30px;
+    width: auto;
+    border: 0;
+    border-radius: 10px;
+    border: 1px solid var(--dark-brown);
+    padding: 2px 10px;
+    font-size: large;
+}
+
+input:focus {
+    border: 1px solid var(--dark-brown);
+}
+
+#read:before {
+    content: "";
+    display: block;
+    position: relative;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--light-brown);
+    border-radius: 6px;
+    background-color: white;
+}
+
+#read:checked:after {
+    content: "";
+    display: block;
+    position: relative;
+    top: -25px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--light-brown);
+    border-radius: 6px;
+    color: white;
+    background-color: var(--dark-brown);
+}
+
+#close {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+}
+
+#add {
+    width: 100px;
+    justify-self: center;
 }

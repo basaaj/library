@@ -30,15 +30,7 @@ function addBookToLibrary() {
 function displayBook(book) {
     let newDiv = document.createElement('div');
     newDiv.className = 'book';
-    newDiv.textContent = book.title + book.author + book.pages;
-
-    let removeButton = document.createElement('button');
-    removeButton.className = 'remove';
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener("click", () => {
-        removeButton.parentElement.remove();
-    });
-    newDiv.appendChild(removeButton);
+    newDiv.innerHTML = `<div><p>${book.title}</p><p>${book.author}</p><p>${book.pages} Pages</p></div>`;
 
     let readSlider = document.createElement('label');
     readSlider.className = 'switch';
@@ -47,6 +39,14 @@ function displayBook(book) {
         readSlider.firstChild.checked = true;
     }
     newDiv.appendChild(readSlider);
+
+    let removeButton = document.createElement('button');
+    removeButton.className = 'remove';
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener("click", () => {
+        removeButton.parentElement.remove();
+    });
+    newDiv.appendChild(removeButton); 
 
     books.appendChild(newDiv);
 }
